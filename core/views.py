@@ -63,7 +63,7 @@ def upload_judgment(request):
             judgment_summary=data.get('judgment_summary', ''),
             directives=data.get('directives', []),
             compliance_deadline=data.get('compliance_deadline') or '',
-            appeal_recommended=data.get('appeal_recommended', False),
+            appeal_recommended=True if str(data.get('appeal_recommended')).lower() == 'true' else False,
             appeal_reason=data.get('appeal_reason', '')
         )
 
